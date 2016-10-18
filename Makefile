@@ -1,6 +1,6 @@
 XTENSA		?=
-SDK_BASE	?= /tools/esp8266/sdk/ESP8266_NONOS_SDK
-ESPTOOL		?= /tools/esp8266/esptool/esptool.py
+SDK_BASE	?= /opt/esp-open-sdk/sdk
+ESPTOOL		?= /opt/esp-open-sdk/esptool/esptool.py
 SDK_LIBS 	:= -lc -lgcc -lhal -lphy -lpp -lnet80211 -lwpa -lmain -llwip -lcrypto -ljson
 CC			:= $(XTENSA)xtensa-lx106-elf-gcc
 LD			:= $(XTENSA)xtensa-lx106-elf-gcc
@@ -35,7 +35,7 @@ clean:
 	rm -rf *.o *.bin *.a *.out
 	
 flash:
-	$(ESPTOOL) --port /dev/tty.SLAB_USBtoUART \
+	$(ESPTOOL) --port /dev/ttyUSB \
 			   --baud 480600 \
 			   write_flash --flash_freq 40m --flash_mode dio --flash_size 32m \
 			   0x00000 main0x00000.bin \
