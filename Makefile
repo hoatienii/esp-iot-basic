@@ -35,7 +35,7 @@ clean:
 	rm -rf *.o *.bin *.a *.out
 	
 flash:
-	$(ESPTOOL) --port /dev/ttyUSB \
+	$(ESPTOOL) --port /dev/ttyUSB0 \
 			   --baud 480600 \
 			   write_flash --flash_freq 40m --flash_mode dio --flash_size 32m \
 			   0x00000 main0x00000.bin \
