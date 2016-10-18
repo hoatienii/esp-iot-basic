@@ -3,5 +3,7 @@ build/
 firmware
 .output
 map.txt
-.out
-.bin
+*.out
+*.bin
+*.o
+*.a
